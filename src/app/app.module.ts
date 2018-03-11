@@ -9,8 +9,6 @@ import { AdminPage, NewUserPage, EditUserPage, FiltersPage, BarcodeScanPage, Cam
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { UserService, FilterService, ProductService } from '../shared/shared';
-import { UrlBuilder } from '../shared/external/url-builder.util';
-import { adminUrlBuilderProvider } from '../shared/external/admin-url-builder.config';
 import { FilterName } from 'src/enums/filter-name.enum';
 
 import { ModalToolbarComponent, UserModifyComponent, UsersListComponent, RolesListComponent  } from '../pages/components/components';
@@ -62,7 +60,6 @@ import { GoogleMaps } from '@ionic-native/google-maps';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     UserService,
     FilterService,
-    {provide: UrlBuilder, useFactory: adminUrlBuilderProvider},
     BarcodeScanner,
     ProductService,
     Camera,
