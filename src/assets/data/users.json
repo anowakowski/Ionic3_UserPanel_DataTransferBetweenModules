@@ -1,0 +1,12 @@
+[
+    { "namePolish": "Janek", "nameEng": "Abram", "personalID": "personal360", "status": "Active", "role": "Complain Sorter" },
+    { "namePolish": "Konrad", "nameEng": "Adam", "personalID": "personal3601", "status": "Active", "role": "President Deputy" },
+    { "namePolish": "Irek", "nameEng": "James", "personalID": "personal3602", "status": "Active", "role": "President" },
+    { "namePolish": "Jurek", "nameEng": "James", "personalID": "personal3603", "status": "Active", "role": "Complain Sorter" },
+    { "namePolish": "Adrian", "nameEng": "Jhon", "personalID": "personal360", "status": "Active", "role": "Legal Researcher" },
+    { "namePolish": "Jan", "nameEng": "Jhon", "personalID": "personal3601", "status": "Active", "role": "Complain Sorter" },
+    { "namePolish": "Jan", "nameEng": "Jhon", "personalID": "personal3602", "status": "Deactived", "role": "Complain Sorter" },
+    { "namePolish": "Piotr", "nameEng": "Peter", "personalID": "personaPeter11", "status": "Deactived", "role": "Complain Sorter" },
+    { "namePolish": "Piotr", "nameEng": "Peter", "personalID": "personaPeter11", "status": "Active", "role": "Complain Sorter" },
+    { "namePolish": "Jan", "nameEng": "Jhon", "personalID": "personalJhon11", "status": "Active", "role": "President" }
+]

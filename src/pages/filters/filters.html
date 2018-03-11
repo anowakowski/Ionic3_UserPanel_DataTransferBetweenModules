@@ -1,0 +1,30 @@
+
+<ion-header>
+    <app-modal-toolbar></app-modal-toolbar>
+</ion-header>
+
+<ion-content padding>
+<ion-list >
+    <ion-item>
+        <ion-label color="adminPrimary" stacked>English name</ion-label>
+        <ion-input [(ngModel)]="engName" type="text" placeholder="filter by english name"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label color="adminPrimary" stacked>personal Id</ion-label>
+        <ion-input [(ngModel)]="persId" type="text" placeholder="filter by personal Id"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label>Status</ion-label>
+        <ion-select [(ngModel)]="status">
+          <ion-option *ngFor="let stat of statusList" [value]="stat">{{stat}}</ion-option>
+        </ion-select>
+    </ion-item>
+    <ion-item>
+        <ion-label>Role</ion-label>
+        <ion-select [(ngModel)]="rolesValue">
+          <ion-option *ngFor="let role of rolesData" [value]="role">{{role}}</ion-option>
+        </ion-select>
+    </ion-item>
+</ion-list>
+<button color="adminPrimary" ion-button full (click)="onTappedFilters()">Apply filters</button>
+</ion-content>

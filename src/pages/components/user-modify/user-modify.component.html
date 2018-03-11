@@ -1,0 +1,27 @@
+<ion-list no-lines>
+  <form [formGroup]="userData">
+     <ion-item>
+         <ion-label floating>Personal ID * </ion-label>
+         <ion-input formControlName="personalId" [class.invalid]="!userData.controls.personalId.valid && (userData.controls.personalId.dirty || submitAttempt)"></ion-input>
+     </ion-item> 
+     <ion-item *ngIf="!userData.controls.personalId.valid  && (userData.controls.personalId.dirty || submitAttempt)">
+         <p>Please enter a valid personal ID.</p>
+     </ion-item>                            
+      <ion-item>
+          <ion-label floating>First Name Polish * </ion-label>
+          <ion-input formControlName="userNamePolish"  [class.invalid]="!userData.controls.userNamePolish.valid && (userData.controls.userNamePolish.dirty || submitAttempt)"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="!userData.controls.userNamePolish.valid  && (userData.controls.userNamePolish.dirty || submitAttempt)">
+         <p>Please enter a valid name.</p>
+     </ion-item>
+     <ion-item>
+         <ion-label floating>First Name Eng * </ion-label>
+         <ion-input formControlName="userNameEng" [class.invalid]="!userData.controls.userNameEng.valid && (userData.controls.userNameEng.dirty || submitAttempt)"></ion-input>
+     </ion-item>
+     <ion-item *ngIf="!userData.controls.userNameEng.valid  && (userData.controls.userNameEng.dirty || submitAttempt)">
+        <p>Please enter a valid name.</p>
+    </ion-item>                               
+  </form>
+</ion-list>
+<button *ngIf="isEditBind" ion-button full color="adminPrimary"  (click)="clickedUpdateUser()">Update user</button>
+<button *ngIf="!isEditBind" ion-button full color="adminPrimary"  (click)="addNewUser()">Add new user</button>

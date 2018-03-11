@@ -1,0 +1,61 @@
+<ion-fab class="fabButton" bottom right>
+        <button color="adminPrimary" ion-fab mini (click)="toggleMainFab()"><ion-icon name="md-arrow-dropup"></ion-icon></button>
+</ion-fab> 
+<div style="background:white;">    
+                <ion-toolbar >
+                    <ion-searchbar placeholder="search by polish name" (ionInput)="onFilterUserByPolishName()" (ionCancel)="onCancelFilterByPolishName($event)" [(ngModel)]="queryName"></ion-searchbar>
+                </ion-toolbar>    
+</div>
+<ion-card *ngIf="shouldShowFilterCard">
+    <ion-card-header class="my-filter-header">Filters</ion-card-header>
+    <ion-card-content>
+        <ion-chip *ngIf="isFilterNamePolish" #filterNamePolishchip>
+                <ion-icon name="md-funnel" color="adminSecondary"></ion-icon>
+                <ion-label>filter by polish name</ion-label>
+        </ion-chip>                 
+        <ion-chip *ngIf="isFilterNameEng" #filterNameEngChip>
+                <ion-icon name="md-funnel" color="adminSecondary"></ion-icon>
+                <ion-label>filter by english name</ion-label>
+                <button color="adminSecondary" ion-button clear (click)="deleteFilterChip(filterNameEngChip, 'engName')">
+                  <ion-icon name="close-circle"></ion-icon>
+                </button>
+        </ion-chip> 
+        <ion-chip *ngIf="isFilterPersonalId" #filterPersonalIdChip>
+                    <ion-icon name="md-funnel" color="adminSecondary"></ion-icon>
+                    <ion-label>filter by personal id</ion-label>
+                    <button color="adminSecondary" ion-button clear (click)="deleteFilterChip(filterPersonalIdChip, 'personalId')">
+                      <ion-icon name="close-circle"></ion-icon>
+                    </button>
+        </ion-chip>
+        <ion-chip *ngIf="isFilterStatus" #isFilterStatusChip>
+            <ion-icon name="md-funnel" color="adminSecondary"></ion-icon>
+            <ion-label>filter by status</ion-label>
+            <button color="adminSecondary" ion-button clear (click)="deleteFilterChip(isFilterStatusChip, 'status')">
+              <ion-icon name="close-circle"></ion-icon>
+        </button>
+</ion-chip>                                                            
+    </ion-card-content>
+</ion-card>
+
+<ion-card >
+<ion-card-content >
+        <ion-list no-lines>
+                <ion-list-header>
+                        Fund {{userLength}} Users
+                    </ion-list-header>
+                <ion-item *ngFor="let user of users" (click)="userTapped($event, user)">
+                        <ion-icon icon-left name="md-body"> {{ user.namePolish }} - {{user.nameEng}} </ion-icon>
+                        <span class="user-list-rigthElement user-list-rigthElement-status" ion-note >{{user.status}} </span>
+                        <ion-icon item-end icon-left name="md-create"> </ion-icon>
+                        <hr />
+                        <ion-icon  icon-left name="ios-information-circle-outline"> </ion-icon>
+                        <span class="user-list-rigthElement"> personalId: </span> 
+                        <span class="user-list-rigthElement user-list-submenu-fontColor"> {{user.personalID}}</span>
+                        <span class="user-list-rigthElement user-list-rigthElement-status" ion-note ></span>
+                        <span class="user-list-rigthElement">Role:</span>
+                        <span class=" user-list-rigthElement user-list-submenu-fontColor"> {{user.role}}</span>
+                        <hr/>    
+                </ion-item>
+            </ion-list>   
+</ion-card-content>
+</ion-card>
