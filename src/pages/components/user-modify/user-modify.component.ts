@@ -85,7 +85,7 @@ export class UserModifyComponent implements OnInit {
     });
     if (this.isEditBind){
       this.userData.setValue({
-        personalId: 1,
+        personalId: user.personalID,
         userNamePolish: user.namePolish,
         userNameEng: user.nameEng
       });
