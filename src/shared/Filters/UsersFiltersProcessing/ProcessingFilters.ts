@@ -1,10 +1,8 @@
 import { FiltersBase } from "./filtersBase";
-import { FilterEnglish } from "./filterEnglish";
-import { FilterPolish } from "./filterPolish";
+import { FilterSurname } from "./filteSurname";
+import { FilterFirstName } from "./filterFirstName";
 import { FilterStatus } from "./filterStatus";
-
 import * as _ from 'lodash';
-
 
 export class ProcessingFilters {
 
@@ -21,8 +19,8 @@ export class ProcessingFilters {
 
     private setFilters(): Array<FiltersBase>{
         let filters: Array<FiltersBase> = new Array<FiltersBase>();
-        filters.push(new FilterPolish());
-        filters.push(new FilterEnglish());
+        filters.push(new FilterFirstName());
+        filters.push(new FilterSurname());
         filters.push(new FilterStatus())
         
         return filters;

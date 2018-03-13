@@ -9,7 +9,7 @@ import * as _ from 'lodash';
 })
 export class FiltersPage {
   
-  engName:string = null;
+  surname:string = null;
   persId:string = null;
   rolesData:any[] = [];
   statusList: any[];
@@ -31,7 +31,7 @@ export class FiltersPage {
 
     let filters = [];
 
-    me.filterService.createFilter(filters, 'engName', me.engName);
+    me.filterService.createFilter(filters, 'surname', me.surname);
     me.filterService.createFilter(filters, 'personalId', me.persId);
     me.filterService.createFilter(filters, "status", me.status);
     me.filterService.createFilter(filters, "roles", me.rolesValue);
@@ -46,8 +46,8 @@ export class FiltersPage {
     if (me.filterService.checkIfFilterExists( "status", me.filtersData)){
       me.status = me.filterService.getFilterValue(me.filtersData, "status");
     }
-    if (me.filterService.checkIfFilterExists( "engName", me.filtersData)){
-      me.engName = me.filterService.getFilterValue(me.filtersData, "engName");
+    if (me.filterService.checkIfFilterExists( "surname", me.filtersData)){
+      me.surname = me.filterService.getFilterValue(me.filtersData, "surname");
     }
     if (me.filterService.checkIfFilterExists( "personalId", me.filtersData)){
       me.persId = me.filterService.getFilterValue(me.filtersData, "personalId");

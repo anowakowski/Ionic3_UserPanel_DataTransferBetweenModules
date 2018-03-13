@@ -15,8 +15,8 @@ export class UsersListComponent {
   userLength: number;
   users = [];
   shouldShowFilterCard: boolean = false;
-  isFilterNamePolish: boolean = false;
-  isFilterNameEng: boolean = false;
+  isFilterFirstName: boolean = false;
+  isFilterSurname: boolean = false;
   isFilterPersonalId: boolean = false;
   isFilterStatus: boolean = false;
 
@@ -94,16 +94,16 @@ export class UsersListComponent {
     this.prepareActionSheet()
   } 
 
-  onFilterUserByPolishName(){
+  onFilterUserByFirstName(){
     const me = this;
 
     let searchBarValue = me.queryName;
 
     if (searchBarValue || searchBarValue.length !== 0){
-      me.filterService.createFilter(me.filtersData, "namePolish", me.queryName);
+      me.filterService.createFilter(me.filtersData, "firstName", me.queryName);
       
     } else {
-      me.filterService.removeFilter(me.filtersData, "namePolish");
+      me.filterService.removeFilter(me.filtersData, "firstName");
       this.displayFiltersElement(me);
     }
 
@@ -116,9 +116,9 @@ export class UsersListComponent {
 
   private displayFiltersElement(me: this) {
     me.isFilterPersonalId = me.filterService.shouldDisplayFilter("personalId", me.filtersData);
-    me.isFilterNameEng = me.filterService.shouldDisplayFilter("engName", me.filtersData);
+    me.isFilterSurname = me.filterService.shouldDisplayFilter("surname", me.filtersData);
     me.isFilterStatus = me.filterService.shouldDisplayFilter("status", me.filtersData);
-    me.isFilterNamePolish = me.filterService.shouldDisplayFilter("namePolish", me.filtersData);
+    me.isFilterFirstName = me.filterService.shouldDisplayFilter("firstName", me.filtersData);
 
     me.shouldShowFilterCard = me.filterService.shouldDisplayFilterCard(me.filtersData);
   }

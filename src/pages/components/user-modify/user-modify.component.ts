@@ -80,14 +80,14 @@ export class UserModifyComponent implements OnInit {
   private createForm(user: any){
     this.userData = this.formBuilder.group({
       personalId:  ['', Validators.compose([Validators.maxLength(30), Validators.required])],
-      userNamePolish: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
-      userNameEng: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])]      
+      userFirstName: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])],
+      userSurname: ['', Validators.compose([Validators.maxLength(30), Validators.pattern('[a-zA-Z ]*'), Validators.required])]      
     });
     if (this.isEditBind){
       this.userData.setValue({
         personalId: user.personalID,
-        userNamePolish: user.namePolish,
-        userNameEng: user.nameEng
+        userFirstName: user.firstName,
+        userSurname: user.surname
       });
     }
   }

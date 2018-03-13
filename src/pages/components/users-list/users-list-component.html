@@ -3,20 +3,20 @@
 </ion-fab> 
 <div style="background:white;">    
                 <ion-toolbar >
-                    <ion-searchbar placeholder="search by polish name" (ionInput)="onFilterUserByPolishName()" (ionCancel)="onCancelFilterByPolishName($event)" [(ngModel)]="queryName"></ion-searchbar>
+                    <ion-searchbar placeholder="search by first name" (ionInput)="onFilterUserByFirstName()" (ionCancel)="onCancelFilterByFirstName($event)" [(ngModel)]="queryName"></ion-searchbar>
                 </ion-toolbar>    
 </div>
 <ion-card *ngIf="shouldShowFilterCard">
     <ion-card-header class="my-filter-header">Filters</ion-card-header>
     <ion-card-content>
-        <ion-chip *ngIf="isFilterNamePolish" #filterNamePolishchip>
+        <ion-chip *ngIf="isFilterUserFirstName" #filterFirstNameChip>
                 <ion-icon name="md-funnel" color="adminSecondary"></ion-icon>
                 <ion-label>filter by polish name</ion-label>
         </ion-chip>                 
-        <ion-chip *ngIf="isFilterNameEng" #filterNameEngChip>
+        <ion-chip *ngIf="isFilterSurname" #filterSurnameChip>
                 <ion-icon name="md-funnel" color="adminSecondary"></ion-icon>
                 <ion-label>filter by english name</ion-label>
-                <button color="adminSecondary" ion-button clear (click)="deleteFilterChip(filterNameEngChip, 'engName')">
+                <button color="adminSecondary" ion-button clear (click)="deleteFilterChip(filterSurnameChip, 'surname')">
                   <ion-icon name="close-circle"></ion-icon>
                 </button>
         </ion-chip> 
@@ -44,7 +44,7 @@
                         Fund {{userLength}} Users
                     </ion-list-header>
                 <ion-item *ngFor="let user of users" (click)="userTapped($event, user)">
-                        <ion-icon icon-left name="md-body"> {{ user.namePolish }} - {{user.nameEng}} </ion-icon>
+                        <ion-icon icon-left name="md-body"> {{ user.firstName }} - {{user.surname}} </ion-icon>
                         <span class="user-list-rigthElement user-list-rigthElement-status" ion-note >{{user.status}} </span>
                         <ion-icon item-end icon-left name="md-create"> </ion-icon>
                         <hr />
