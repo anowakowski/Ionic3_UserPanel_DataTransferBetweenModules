@@ -40,9 +40,13 @@ export class UsersListComponent {
       this.users = this.usersData;
     });
 
+    this.subscribeEvent();
+  }
 
-    this.events.subscribe('shareFiltersData', (filterData) => {
-      this.refreshFilters(filterData);
+  subscribeEvent(){
+    const me = this;
+    me.events.subscribe('shareFiltersData', (filterData) => {
+      me.refreshFilters(filterData);
     });
   }
 
